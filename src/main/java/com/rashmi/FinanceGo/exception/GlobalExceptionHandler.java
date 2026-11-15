@@ -29,4 +29,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String,String>> handleMalformedJSON(HttpMessageNotReadableException ex){
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("Error","Malformed JSON request"));
     }
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public ResponseEntity<Map<String,String>> handleInvalidCredentials(InvalidCredentialsException ex)
+    {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("Error","Invalid email or password"));
+    }
 }
