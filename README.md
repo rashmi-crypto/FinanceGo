@@ -38,7 +38,7 @@ Status key: ✅ done · 🚧 in progress · 🗓️ planned
 |---|---|
 | Project setup and MySQL connection | ✅ |
 | User registration and login | ✅ |
-| Secure authentication with Spring Security (JWT) | 🗓️ |
+| Secure authentication with Spring Security (JWT) | ✅ |
 | Income and expense tracking (CRUD) | 🗓️ |
 | Categories for transactions | 🗓️ |
 | Savings goals | 🗓️ |
@@ -142,7 +142,7 @@ Database credentials are read from environment variables so secrets never get co
 
 - [x] **Phase 1**: Project setup, entities, repositories
 - [ ] **Phase 2**: Transaction CRUD with DTOs and validation
-- [ ] **Phase 3**: Authentication and authorization (Spring Security)
+- [x] **Phase 3**: Authentication and authorization (Spring Security)
 - [ ] **Phase 4**: Savings goals and investment tracking
 - [ ] **Phase 5**: Reports, filtering, pagination
 - [ ] **Phase 6**: API documentation (OpenAPI/Swagger) and Docker support
