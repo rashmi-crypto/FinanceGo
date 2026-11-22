@@ -10,12 +10,12 @@ import com.rashmi.FinanceGo.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
 
-    @RestController
+import java.util.Map;
+
+@RestController
     @RequestMapping("/api/auth")
     public class AuthController {
 
@@ -39,5 +39,9 @@ import org.springframework.web.bind.annotation.RestController;
             String token= authService.login(request.email(),request.password());
             LoginResponse response = new LoginResponse(token);
                     return ResponseEntity.ok(response);
+        }
+        @GetMapping("/me")
+        public Map<String, String> me(Authentication authentication) {
+            return Map.of("email", authentication.getName());
         }
     }
