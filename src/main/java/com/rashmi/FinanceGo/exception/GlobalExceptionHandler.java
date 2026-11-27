@@ -1,5 +1,6 @@
 package com.rashmi.FinanceGo.exception;
 
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -16,6 +17,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(EmailAlreadyExistsException.class)
     public ResponseEntity<Map<String, String>> handleEmailExists(EmailAlreadyExistsException ex) {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("Error",ex.getMessage()));
+    }
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleResourceDoesNotExist(ResourceNotFoundException ex)
+    {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("Error",ex.getMessage()));
     }
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String,String>> handleValidation(MethodArgumentNotValidException ex) {
